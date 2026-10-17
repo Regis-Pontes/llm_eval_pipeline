@@ -40,15 +40,30 @@ Implemented a programmatic audit script verifying **57,477 records**:
 * **Missing/Null Prompts:** 0 detected.
 * **Edge-Case Identification:** Flagged 27 instances where identical responses were assigned non-tie outcomes, isolating potential human annotator noise.
 
+### Section 5: Automated QA Audit
+Implemented a programmatic audit script verifying **57,477 records**:
+* **Conflicting Winner Flags:** 0 detected.
+* **Missing/Null Prompts:** 0 detected.
+* **Edge-Case Identification:** Flagged 27 instances where identical responses were assigned non-tie outcomes, isolating potential human annotator noise.
+
+### Section 6: Artifact Exports & Executive Summary
+* Exported structured QA diagnostic metrics (`output/qa_diagnostic_report.csv`) for downstream pipeline integration.
+* Generated a processed, feature-engineered sample dataset (`output/processed_llm_eval_sample.csv`).
+* Saved high-resolution data visualization plots (`output/win_distribution_plot.png`).
+* Automated the creation of an **Executive Pre-evaluation Report** (`output/executive_summary.md`) summarizing statistical win rates, verbosity bias impact, and data quality audits.
 ---
 
 ##  Repository Structure
 
-```text
 llm_eval_pipeline/
 │
 ├── notebooks/
-│   └── llm_eval_pipeline.ipynb   # Main Jupyter Notebook with code & analysis
-├── .gitignore                    # Git tracking exclusions (logs, CSVs, venv)
-├── requirements.txt              # Project dependencies
-└── README.md                     # Project documentation
+│   └── llm_eval_pipeline.ipynb
+├── output/
+│   ├── qa_diagnostic_report.csv          # Automated QA audit summary report
+│   ├── processed_llm_eval_sample.csv    # Feature-engineered dataset output
+│   ├── model_evaluation_diagnostics.png # Combined win distribution & verbosity bias plots
+│   └── executive_summary.md             # Executive pre-evaluation & diagnostic report
+├── .gitignore
+├── requirements.txt
+└── README.md
